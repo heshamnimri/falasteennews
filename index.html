@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Falasteen News</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='60%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='90'>🇵🇸</text></svg>">
     <style>
         * {
             margin: 0;
@@ -85,18 +86,27 @@
         }
 
         .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #ffffff;
-            border-top: 3px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
             margin: 2rem auto;
+            font-size: 1rem;
+            letter-spacing: 2px;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .dot {
+            opacity: 0;
+            animation: appear 2s infinite;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes appear {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
         }
 
         .features {
@@ -106,18 +116,35 @@
             width: 100%;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .features-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 2rem;
         }
 
-        .feature-card {
-            text-align: left;
-            padding: 2rem;
-            background-color: #111111;
-            border: 1px solid #333;
+        .features-list li {
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .features-list .emoji {
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .features-list h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .features-list p {
+            margin: 0;
+            color: #cccccc;
+            line-height: 1.6;
         }
 
         footer {
@@ -150,26 +177,44 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>FALASTEEN NEWS</h1>
-                <p>Loading latest updates...</p>
-                <div class="spinner"></div>
+                <p>Stay Informed, Stay Aware</p>
+                <div class="spinner">
+                    COMING SOON<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+                </div>
             </div>
         </section>
 
         <section class="features" id="features">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>UPDATES</h3>
-                    <p>Get verified news and updates from Palestine</p>
-                </div>
-                <div class="feature-card">
-                    <h3>LIVE COVERAGE</h3>
-                    <p>Real-time reporting and coverage from the ground...</p>
-                </div>
-                <div class="feature-card">
-                    <h3>ANALYSIS</h3>
-                    <p>In-depth analysis and expert perspectives...</p>
-                </div>
-            </div>
+            <ul class="features-list">
+                <li>
+                    <span class="emoji">🔴</span>
+                    <div>
+                        <h3>See What's Happening</h3>
+                        <p>An interactive map highlights key hotspots, including military actions, sieges, infrastructure damage, and humanitarian updates.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">📊</span>
+                    <div>
+                        <h3>Event Data</h3>
+                        <p>Track airstrikes, incursions, aid deliveries, and casualties, all in one place.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">🎥</span>
+                    <div>
+                        <h3>Watch Events Unfold</h3>
+                        <p>Where available, view verified footage.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="emoji">🛠</span>
+                    <div>
+                        <h3>Built for Transparency</h3>
+                        <p>Our structured data system ensures accurate, timely reporting on events in Palestine.</p>
+                    </div>
+                </li>
+            </ul>
         </section>
     </div>
 
