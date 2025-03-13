@@ -25,35 +25,9 @@
         header {
             background-color: #000000;
             padding: 1rem 2rem;
-            border-bottom: 1px solid #ffffff;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        .nav-links a {
-            margin-left: 2rem;
-            text-decoration: none;
-            color: #ffffff;
-        }
-
-        .nav-links a:hover {
-            text-decoration: underline;
         }
 
         .main-content {
-            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -62,7 +36,7 @@
 
         .hero {
             background-color: #000000;
-            padding: 2rem;
+            padding-top: 2rem;
             text-align: center;
             width: 100%;
         }
@@ -70,81 +44,122 @@
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
             color: #ffffff;
             letter-spacing: -2px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #cccccc;
-            margin-bottom: 2rem;
-        }
-
-        .spinner {
-            margin: 2rem auto;
-            font-size: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .dot {
-            opacity: 0;
-            animation: appear 2s infinite;
-        }
-
-        .dot:nth-child(2) {
-            animation-delay: 0.5s;
-        }
-
-        .dot:nth-child(3) {
-            animation-delay: 1s;
-        }
-
-        @keyframes appear {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
-        .features {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .features-list {
-            list-style: none;
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-
-        .features-list li {
-            margin-bottom: 2.5rem;
+        .nav-links {
             display: flex;
-            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             gap: 1rem;
         }
 
-        .features-list .emoji {
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        .features-list h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1rem;
+        .tab-button {
+            background: none;
+            border: 1px solid #ffffff;
             color: #ffffff;
+            padding: 0.75rem 2rem;
+            max-height: 3rem;
+            font-family: 'Courier New', Courier, monospace;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        .features-list p {
-            margin: 0;
+        .tab-button.active {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .trackers {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            margin: 2rem auto;
+            width: 100%;
+            padding-inline: 5rem;
+            flex: 1;
+        }
+
+        .tracker-card {
+            border: 1px solid #333;
+            padding: 2rem;
+            text-align: left;
+            background-color: #111111;
+            width: 100%;
+        }
+
+        .tracker-card h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            padding-bottom: 1rem;
+            text-align: center;
+        }
+
+        .tracker-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .tracker-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border: 1px solid #222;
+        }
+
+        .tracker-count {
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: right;
+        }
+
+        .tracker-label {
             color: #cccccc;
-            line-height: 1.6;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        .tab-content {
+            display: none;
+            width: 100%;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         footer {
@@ -156,70 +171,149 @@
             width: 100%;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: #ffffff;
-            color: #000000;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #000000;
-            color: #ffffff;
-            border: 1px solid #ffffff;
+        @media (max-width: 768px) {
+            .tracker-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="main-content">
-        <section class="hero">
+        <header class="hero">
             <div class="hero-content">
                 <h1>FALASTEEN NEWS</h1>
-                <p>Stay Informed, Stay Aware</p>
-                <div class="spinner">
-                    COMING SOON<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+                <div class="tabs">
+                    <button class="tab-button active" onclick="openTab('gaza')">GAZA</button>
+                    <button class="tab-button" onclick="openTab('westbank')">WEST BANK</button>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <section class="features" id="features">
-            <ul class="features-list">
-                <li>
-                    <span class="emoji">🔴</span>
-                    <div>
-                        <h3>See What's Happening</h3>
-                        <p>An interactive map highlights key hotspots, including military actions, sieges, infrastructure damage, and humanitarian updates.</p>
+        <div id="gaza" class="tab-content active">
+            <div class="trackers">
+                <div class="tracker-card">
+                    <h2>Siege Tracker</h2>
+                    <div class="tracker-grid">
+                        <div class="tracker-item">
+                            <div class="tracker-count">150</div>
+                            <div class="tracker-label">Days Under Siege</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">1,250</div>
+                            <div class="tracker-label">Aid Trucks Entered</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">60%</div>
+                            <div class="tracker-label">Homes Destroyed</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">128</div>
+                            <div class="tracker-label">Days of Incursions</div>
+                        </div>
                     </div>
-                </li>
-                <li>
-                    <span class="emoji">📊</span>
-                    <div>
-                        <h3>Event Data</h3>
-                        <p>Track airstrikes, incursions, aid deliveries, and casualties, all in one place.</p>
+                </div>
+
+                <div class="tracker-card">
+                    <h2>Martyrs Tracker</h2>
+                    <div class="tracker-grid">
+                        <div class="tracker-item">
+                            <div class="tracker-count">30,000+</div>
+                            <div class="tracker-label">Total Lives Lost</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">12,000+</div>
+                            <div class="tracker-label">Children</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">135+</div>
+                            <div class="tracker-label">Journalists</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">8,000+</div>
+                            <div class="tracker-label">Women</div>
+                        </div>
                     </div>
-                </li>
-                <li>
-                    <span class="emoji">🎥</span>
-                    <div>
-                        <h3>Watch Events Unfold</h3>
-                        <p>Where available, view verified footage.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="westbank" class="tab-content">
+            <div class="trackers">
+                <div class="tracker-card">
+                    <h2>Siege Tracker</h2>
+                    <div class="tracker-grid">
+                        <div class="tracker-item">
+                            <div class="tracker-count">365+</div>
+                            <div class="tracker-label">Days of Restrictions</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">750+</div>
+                            <div class="tracker-label">Checkpoints Active</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">500+</div>
+                            <div class="tracker-label">Homes Demolished</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">200+</div>
+                            <div class="tracker-label">Days of Raids</div>
+                        </div>
                     </div>
-                </li>
-                <li>
-                    <span class="emoji">🛠</span>
-                    <div>
-                        <h3>Built for Transparency</h3>
-                        <p>Our structured data system ensures accurate, timely reporting on events in Palestine.</p>
+                </div>
+
+                <div class="tracker-card">
+                    <h2>Martyrs Tracker</h2>
+                    <div class="tracker-grid">
+                        <div class="tracker-item">
+                            <div class="tracker-count">450+</div>
+                            <div class="tracker-label">Total Lives Lost</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">75+</div>
+                            <div class="tracker-label">Children</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">15+</div>
+                            <div class="tracker-label">Journalists</div>
+                        </div>
+                        <div class="tracker-item">
+                            <div class="tracker-count">100+</div>
+                            <div class="tracker-label">Women</div>
+                        </div>
                     </div>
-                </li>
-            </ul>
-        </section>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2024 Falasteen News. All rights reserved.</p>
+        <!-- <div class="footer-content" style="display: flex; justify-content: space-around; align-items: center;">
+            <div class="nav-links">
+                <a href="about.html">ABOUT</a>
+            </div>
+        </div> -->
     </footer>
+
+    <script>
+        function openTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let content of tabContents) {
+                content.classList.remove('active');
+            }
+            
+            // Deactivate all buttons
+            const tabButtons = document.getElementsByClassName('tab-button');
+            for (let button of tabButtons) {
+                button.classList.remove('active');
+            }
+            
+            // Show the selected tab content and activate the button
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
