@@ -51,7 +51,7 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             color: #ffffff;
             letter-spacing: -2px;
         }
@@ -85,10 +85,10 @@
             background: none;
             border: 1px solid #ffffff;
             color: #ffffff;
-            padding: 0.75rem 2rem;
+            padding-block: 0.3rem;
             font-family: 'Courier New', Courier, monospace;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             flex: 1;
             white-space: nowrap;
@@ -111,19 +111,19 @@
 
         .tracker-card {
             border: 1px solid #333;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: left;
             background-color: #111111;
             width: 100%;
         }
 
         .tracker-card h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             border-bottom: 1px solid #333;
-            padding-bottom: 1rem;
+            padding-bottom: 0.75rem;
             text-align: center;
         }
 
@@ -137,12 +137,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem;
+            padding: 1rem;
             border: 1px solid #222;
         }
 
         .tracker-count {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             font-family: 'Courier New', Courier, monospace;
             text-align: right;
@@ -152,11 +152,11 @@
 
         .tracker-label {
             color: #cccccc;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             text-align: left;
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .tab-content {
@@ -182,12 +182,18 @@
                 padding-inline: 2rem;
             }
 
-            .tracker-card h2 {
-                font-size: 1.75rem;
+            .siege-overview {
+                flex-direction: column;
+                padding: 1rem;
             }
 
-            .tracker-count {
-                font-size: 1.75rem;
+            .siege-number {
+                font-size: 1.5rem;
+                min-width: 70px;
+            }
+
+            .siege-description {
+                font-size: 0.9rem;
             }
         }
 
@@ -198,7 +204,7 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .tracker-card {
@@ -206,20 +212,15 @@
             }
 
             .tracker-card h2 {
-                font-size: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .tracker-item {
-                padding: 1rem;
+                font-size: 1.25rem;
             }
 
             .tracker-count {
-                font-size: 1.5rem;
+                font-size: 1.25rem;
             }
 
             .tracker-label {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
         }
 
@@ -231,15 +232,12 @@
             }
 
             .tab-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-                width: auto;
-                max-width: none;
+                padding: 0.4rem 0.75rem;
+                font-size: 0.75rem;
             }
 
             .hero h1 {
-                font-size: 2rem;
-                padding: 0 1rem;
+                font-size: 1.75rem;
             }
 
             .trackers {
@@ -251,27 +249,97 @@
             }
 
             .tracker-card h2 {
-                font-size: 1.25rem;
-                margin-bottom: 1rem;
-            }
-
-            .tracker-item {
-                padding: 0.75rem;
-                flex-direction: column;
-                gap: 0.5rem;
-                text-align: center;
+                font-size: 1.1rem;
             }
 
             .tracker-count {
-                font-size: 1.5rem;
-                margin-left: 0;
-                text-align: center;
+                font-size: 1.1rem;
             }
 
             .tracker-label {
-                font-size: 0.8rem;
-                text-align: center;
+                font-size: 0.75rem;
             }
+
+            .siege-number {
+                font-size: 1.2rem;
+                min-width: 50px;
+                padding: 0.5rem;
+            }
+
+            .siege-description {
+                font-size: 0.8rem;
+            }
+        }
+
+        .siege-overview {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .siege-stats {
+            flex: 1;
+        }
+
+        .siege-stat-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .siege-stat-item.hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .siege-number {
+            background-color: #8B0000;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .siege-description {
+            font-size: 1rem;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .maps-container {
+            flex: 1;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .map {
+            background-color: #000000;
+            padding: 1rem;
+            width: 100%;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .map.hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .map img {
+            width: 100%;
+            height: auto;
+            /* filter: grayscale(100%) brightness(80%) contrast(120%); */
         }
     </style>
 </head>
@@ -280,12 +348,48 @@
         <header class="hero">
             <div class="hero-content">
                 <h1>FALASTEEN NEWS</h1>
-                <div class="tabs">
-                    <button class="tab-button active" onclick="openTab('gaza')">GAZA</button>
-                    <button class="tab-button" onclick="openTab('westbank')">WEST BANK</button>
-                </div>
             </div>
         </header>
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('gaza')">GAZA</button>
+            <button class="tab-button" onclick="openTab('westbank')">WEST BANK</button>
+        </div>
+
+        <section class="siege-overview">
+            <div class="siege-stats">
+                <!-- Gaza Stats -->
+                <div class="siege-stat-item gaza-stat">
+                    <div class="siege-number">5</div>
+                    <div class="siege-description">Days since Gaza has received any aid</div>
+                </div>
+                <div class="siege-stat-item gaza-stat">
+                    <div class="siege-number">365</div>
+                    <div class="siege-description">Days since start of genocide</div>
+                </div>
+                <div class="siege-stat-item gaza-stat">
+                    <div class="siege-number">0</div>
+                    <div class="siege-description">Aid trucks allowed into Gaza</div>
+                </div>
+
+                <!-- West Bank Stats -->
+                <div class="siege-stat-item westbank-stat hidden">
+                    <div class="siege-number">39</div>
+                    <div class="siege-description">Days since Tulkarm camp under total siege</div>
+                </div>
+                <div class="siege-stat-item westbank-stat hidden">
+                    <div class="siege-number">45</div>
+                    <div class="siege-description">Days since Jenin camp under total siege</div>
+                </div>
+            </div>
+            <div class="maps-container">
+                <div class="map gaza-map">
+                    <img src="assets/gaza.png" alt="Gaza Map" onerror="this.style.display='none'">
+                </div>
+                <div class="map westbank-map hidden">
+                    <img src="assets/westbank.png" alt="West Bank Map" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </section>
 
         <div id="gaza" class="tab-content active">
             <div class="trackers">
@@ -410,6 +514,26 @@
             // Show the selected tab content and activate the button
             document.getElementById(tabName).classList.add('active');
             event.currentTarget.classList.add('active');
+
+            // Handle siege stats visibility
+            const gazaStats = document.getElementsByClassName('gaza-stat');
+            const westbankStats = document.getElementsByClassName('westbank-stat');
+            const gazaMap = document.getElementsByClassName('gaza-map')[0];
+            const westbankMap = document.getElementsByClassName('westbank-map')[0];
+
+            if (tabName === 'gaza') {
+                // Show Gaza stats and map
+                Array.from(gazaStats).forEach(stat => stat.classList.remove('hidden'));
+                Array.from(westbankStats).forEach(stat => stat.classList.add('hidden'));
+                gazaMap.classList.remove('hidden');
+                westbankMap.classList.add('hidden');
+            } else {
+                // Show West Bank stats and map
+                Array.from(gazaStats).forEach(stat => stat.classList.add('hidden'));
+                Array.from(westbankStats).forEach(stat => stat.classList.remove('hidden'));
+                gazaMap.classList.add('hidden');
+                westbankMap.classList.remove('hidden');
+            }
         }
     </script>
 </body>
