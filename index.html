@@ -222,6 +222,7 @@
             .tracker-label {
                 font-size: 0.8rem;
             }
+
         }
 
         @media (max-width: 480px) {
@@ -312,7 +313,7 @@
 
         /* Add responsive font size for large numbers */
         .siege-number:has(+ .siege-description:not(:empty)) {
-            font-size: clamp(1rem, 1.8rem, 1.8rem);
+            font-size: clamp(1rem, 1rem, 1rem);
         }
 
         .siege-number:has(+ .siege-description:not(:empty)):matches(:is(:contains('1000'), :contains(','))) {
