@@ -310,6 +310,20 @@
             font-family: 'Courier New', Courier, monospace;
         }
 
+        /* Add responsive font size for large numbers */
+        .siege-number:has(+ .siege-description:not(:empty)) {
+            font-size: clamp(1rem, 1.8rem, 1.8rem);
+        }
+
+        .siege-number:has(+ .siege-description:not(:empty)):matches(:is(:contains('1000'), :contains(','))) {
+            font-size: 1.2rem;
+        }
+
+        /* Alternative approach using classes */
+        .siege-number.large-number {
+            font-size: 1.2rem;
+        }
+
         .siege-description {
             font-size: 1rem;
             line-height: 1.3;
@@ -372,13 +386,17 @@
                 </div>
 
                 <!-- West Bank Stats -->
-                <div class="siege-stat-item westbank-stat hidden">
+                <!-- <div class="siege-stat-item westbank-stat hidden">
                     <div class="siege-number">39</div>
                     <div class="siege-description">Days since Tulkarm camp under total siege</div>
-                </div>
+                </div> -->
                 <div class="siege-stat-item westbank-stat hidden">
                     <div class="siege-number">45</div>
                     <div class="siege-description">Days since Jenin camp under total siege</div>
+                </div>
+                <div class="siege-stat-item westbank-stat hidden">
+                    <div class="siege-number">26,000</div>
+                    <div class="siege-description">Palestinians displaced from Jenin & Tulkarm</div>
                 </div>
             </div>
             <div class="maps-container">
@@ -498,6 +516,41 @@
     </footer>
 
     <script>
+        function calculateDaysSince(startDate) {
+            const start = new Date(startDate);
+            const today = new Date();
+            const diffTime = Math.abs(today - start);
+            return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        }
+
+        function updateDaysCounter() {
+            // Gaza stats
+            const genocideStartDate = new Date('2023-10-07'); // Start of genocide
+            const lastAidDate = new Date('2024-03-14'); // Last aid received date - update this as needed
+
+            // Update Gaza stats
+            document.querySelector('.gaza-stat:nth-child(1) .siege-number').textContent = 
+                calculateDaysSince(lastAidDate);
+            document.querySelector('.gaza-stat:nth-child(2) .siege-number').textContent = 
+                calculateDaysSince(genocideStartDate);
+
+            // West Bank stats
+            const tulkarmSiegeDate = new Date('2024-02-05'); // Tulkarm siege start
+            const jeninSiegeDate = new Date('2024-01-30'); // Jenin siege start
+
+            // Update West Bank stats
+            document.querySelector('.westbank-stat:nth-child(1) .siege-number').textContent = 
+                calculateDaysSince(tulkarmSiegeDate);
+            document.querySelector('.westbank-stat:nth-child(2) .siege-number').textContent = 
+                calculateDaysSince(jeninSiegeDate);
+        }
+
+        // Update days on page load
+        updateDaysCounter();
+
+        // Update days every day
+        setInterval(updateDaysCounter, 24 * 60 * 60 * 1000);
+
         function openTab(tabName) {
             // Hide all tab contents
             const tabContents = document.getElementsByClassName('tab-content');
